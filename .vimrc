@@ -90,7 +90,7 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(pyc)$',
   \ }
 
-Bundle 'Tagbar'
+Bundle 'tagbar'
 nnoremap <silent> <F9> :TagbarToggle<CR>
 let g:tagbar_sort = 0
 
