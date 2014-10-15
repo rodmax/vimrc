@@ -1,4 +1,3 @@
-" =======================
 " .vimrc by Rodionov M.
 " =======================
 
@@ -27,56 +26,54 @@ Bundle 'vim-python-pep8-indent'
 Bundle 'vim-template'
 let g:username = 'Maxim Rodionov'
 
+Bundle 'python-syntax'
+let g:python_version_2 = 1
+let g:python_highlight_all = 1
+
 Bundle 'pyflakes.vim'
 Bundle 'syntastic'
 let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_pylint_args = '--rcfile=.pylintrc'
+let g:syntastic_python_pylint3_args = '--rcfile=.pylintrc'
+
+function! PY_toogle_py_syntax()
+    if g:python_version_2 == 1
+        let g:syntastic_python_pylint_exe = 'pylint3'
+        let g:syntastic_python_checkers = ['pylint']
+        let g:python_version_2 = 0
+    else
+        let g:syntastic_python_pylint_exe = 'pylint'
+        let g:syntastic_python_checkers = ['flake8'] "'flake8''pylint'
+        let g:python_version_2 = 1
+    endif
+endfunction
+
+command TogglePy call PY_toogle_py_syntax()
 
 Bundle "vim-javascript"
 let g:javascript_conceal = 1
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" May be need to setup
-"Bundle 'chazy/cscope_maps'
-"Bundle 'taglist.vim'
-"Bundle 'mustache'
-"Bundle 'ack.vim'
 
-
-
-
-
-
-"Bundle 'vim-markdown'
-"let g:vim_markdown_folding_disabled=1
-
-" should be install before "Bundle 'MatchTag'" to prevent runtime conflicts
+" should be install before "Bundle 'matchtag'" to prevent runtime conflicts
 Bundle 'xmledit'
 let g:xmledit_enable_html = 1
 
-" https://github.com/gregsexton/MatchTag
-Bundle 'MatchTag'
-
+Bundle 'matchtag'
 Bundle 'django.vim'
-au BufNewFile,BufRead *.html setlocal filetype=htmldjango ts=4 sts=4 sw=4
-" to improve js hightlighting
-" http://stackoverflow.com/questions/6671199/gvim-long-multiline-string-highlighting
-au BufNewFile,BufRead *.html syntax sync fromstart
 
 Bundle 'supertab'
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabLongestHighlight = 1
 set completeopt=menuone,menu,longest
-
 " popup menu(used by SuperTab)
 highlight Pmenu ctermbg=239 gui=bold
 highlight PmenuSel ctermfg=239
 syntax enable
 
-
 Bundle 'jedi-vim'
 au FileType python set omnifunc=jedi#complete
 " Jedi automatically starts the completion, if you type a dot, e.g. str., if
 " you don't want this
-let g:jedi#popup_on_dot = 0
+"let g:jedi#popup_on_dot = 0
 "If you are a person who likes to use VIM-buffers not tabs, you might want to
 "put that in your .vimrc
 let g:jedi#use_tabs_not_buffers = 0
@@ -86,7 +83,6 @@ let g:jedi#show_call_signatures = 0
 "initialized, if you don't want that:
 let g:jedi#auto_vim_configuration = 0
 
-
 Bundle 'ctrlp.vim'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
@@ -94,17 +90,24 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(pyc)$',
   \ }
 
-
 Bundle 'Tagbar'
 nnoremap <silent> <F9> :TagbarToggle<CR>
 let g:tagbar_sort = 0
 
+" my custom plugin to involve local vimrc scripts
 Bundle 'vim-init'
+
+" May be need to install
+"Bundle 'chazy/cscope_maps'
+"Bundle 'taglist.vim'
+"Bundle 'mustache'
+"Bundle 'ack.vim'
+"Bundle 'vim-markdown'
+"let g:vim_markdown_folding_disabled=1
 
 call vundle#end()            " required
 filetype plugin indent on    " required
-" =============================================================================
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " =======================
 " Common settings
@@ -121,9 +124,7 @@ set cinoptions=:0,g0,(s,N-s
 " (s - Indent lines after unclosed parentheses with one tab(4 spaces)
 " N-s -Do not indent namespace
 
-set ai	"for tabs after press <Enter>
-"set smartindent	" additional tad if its subblock(depend on current syntax)
-"set expandtab
+set ai "for tabs after press <Enter>
 set nowrap
 set list
 syntax on
@@ -155,26 +156,10 @@ au BufNewFile,BufRead *.bld  set filetype=java "SDC TI build system based on jav
 au BufNewFile,BufRead *.conf set filetype=sh  "Linux configs
 au BufNewFile,BufRead *.jst set syntax=jst  "java script templates file
 au BufNewFile,BufRead *.mustache set syntax=mustache
-
-" option for ~/.vimrc/syntax.python.vim (https://github.com/hdima/python-syntax)
-let g:python_version_2 = 1
-let g:python_highlight_all = 1
-let g:syntastic_python_pylint_args = '--rcfile=.pylintrc'
-let g:syntastic_python_pylint3_args = '--rcfile=.pylintrc'
-function! PY_toogle_py_syntax()
-    if g:python_version_2 == 1
-        let g:syntastic_python_pylint_exe = 'pylint3'
-        let g:syntastic_python_checkers = ['pylint']
-        let g:python_version_2 = 0
-    else
-        let g:syntastic_python_pylint_exe = 'pylint'
-        let g:syntastic_python_checkers = ['flake8'] "'flake8''pylint'
-        let g:python_version_2 = 1
-    endif
-endfunction
-
-command TogglePy call PY_toogle_py_syntax()
-
+au BufNewFile,BufRead *.html setlocal filetype=htmldjango ts=4 sts=4 sw=4
+" to improve js hightlighting
+" http://stackoverflow.com/questions/6671199/gvim-long-multiline-string-highlighting
+au BufNewFile,BufRead *.html syntax sync fromstart
 
 " =======================
 " Keys mapping
