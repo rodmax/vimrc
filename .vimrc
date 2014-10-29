@@ -53,9 +53,11 @@ command TogglePy call PY_toogle_py_syntax()
 Bundle "vim-javascript"
 let g:javascript_conceal = 1
 
-" should be install before "Bundle 'matchtag'" to prevent runtime conflicts
-Bundle 'xmledit'
-let g:xmledit_enable_html = 1
+Bundle 'html5.vim'
+
+Bundle 'xml.vim'
+let xml_tag_completion_map = ">>"
+let xml_use_html = 1
 
 Bundle 'matchtag'
 Bundle 'django.vim'
