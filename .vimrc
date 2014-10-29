@@ -97,9 +97,10 @@ nnoremap <silent> <F9> :TagbarToggle<CR>
 let g:tagbar_sort = 0
 
 Bundle 'tern_for_vim'
-
+Bundle 'vim-fugitive'
 " my custom plugin to involve local vimrc scripts
 Bundle 'vim-init'
+
 
 " May be need to install
 "Bundle 'chazy/cscope_maps'
