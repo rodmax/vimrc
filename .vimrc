@@ -37,6 +37,8 @@ let g:syntastic_python_pylint_args = '--rcfile=.pylintrc'
 let g:syntastic_python_pylint3_args = '--rcfile=.pylintrc'
 let g:syntastic_css_checkers = ['csslint', 'prettycss']
 
+Bundle 'vim-css-color'
+
 function! PY_toogle_py_syntax()
     if g:python_version_2 == 1
         let g:syntastic_python_pylint_exe = 'pylint3'
