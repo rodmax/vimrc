@@ -6,6 +6,7 @@ filetype off        " required!
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
+Bundle 'vim-sensible'
 Bundle 'vundle'
 Bundle 'bufexplorer.zip'
 
