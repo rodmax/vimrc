@@ -100,7 +100,13 @@ nnoremap <silent> <F9> :TagbarToggle<CR>
 let g:tagbar_sort = 0
 
 Bundle 'tern_for_vim'
+
 Bundle 'vim-fugitive'
+" command to automaticlly pass git grep to quickfix window, inspired by:
+" [1] http://stackoverflow.com/questions/21931116/getting-git-grep-to-work-effectively-in-vim
+" [2] http://vim.wikia.com/wiki/Avoiding_the_%22Hit_ENTER_to_continue%22_prompts
+command -nargs=+ Gg execute ':silent! Ggrep' <q-args> | execute ':redraw!' | cw
+
 " my custom plugin to involve local vimrc scripts
 Bundle 'vim-init'
 
@@ -146,7 +152,6 @@ syntax sync minlines=500
 set ttyfast
 set ttyscroll=3
 set lazyredraw
-
 
 " =======================
 " Color settings
