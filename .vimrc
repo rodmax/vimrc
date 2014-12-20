@@ -159,6 +159,7 @@ set lazyredraw
 " =======================
 set t_Co=256
 set listchars=tab:\→\ ,trail:·,nbsp:· "View special characters
+set fileformats=unix " show ^M symbols, prevent adding ^M symbols
 hi SpecialKey ctermfg=Gray "Highlight special characters
 " Error highlighting
 hi SpellBad cterm=bold ctermfg=white ctermbg=red
