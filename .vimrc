@@ -111,6 +111,7 @@ command -nargs=+ Gg execute ':silent! Ggrep' <q-args> | execute ':redraw!' | cw
 " my custom plugin to involve local vimrc scripts
 Bundle 'vim-init'
 
+Bundle 'vim-commentary'
 
 " May be need to install
 "Bundle 'chazy/cscope_maps'
