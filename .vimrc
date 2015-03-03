@@ -171,6 +171,7 @@ au BufNewFile,BufRead *.conf set filetype=sh  "Linux configs
 au BufNewFile,BufRead *.jst set syntax=jst  "java script templates file
 au BufNewFile,BufRead *.mustache set syntax=mustache
 au BufNewFile,BufRead *.html setlocal filetype=htmldjango ts=4 sts=4 sw=4
+au BufNewFile,BufRead .jshintrc,.csslintrc setlocal filetype=json
 " to improve js hightlighting
 " http://stackoverflow.com/questions/6671199/gvim-long-multiline-string-highlighting
 au BufNewFile,BufRead *.html syntax sync fromstart
