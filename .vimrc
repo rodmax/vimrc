@@ -38,8 +38,6 @@ let g:syntastic_python_pylint_args = '--rcfile=.pylintrc'
 let g:syntastic_python_pylint3_args = '--rcfile=.pylintrc'
 let g:syntastic_css_checkers = ['csslint', 'prettycss']
 
-Bundle 'vim-css-color'
-
 function! PY_toogle_py_syntax()
     if g:python_version_2 == 1
         let g:syntastic_python_pylint_exe = 'pylint3'
@@ -53,6 +51,14 @@ function! PY_toogle_py_syntax()
 endfunction
 
 command TogglePy call PY_toogle_py_syntax()
+
+
+Bundle 'vim-css-color'
+
+
+Bundle 'vim-stylus'
+autocmd BufNewFile,BufRead *.styl set filetype=stylus
+
 
 Bundle "vim-javascript"
 let g:javascript_conceal = 1
@@ -112,14 +118,6 @@ command -nargs=+ Gg execute ':silent! Ggrep' <q-args> | execute ':redraw!' | cw
 Bundle 'vim-init'
 
 Bundle 'vim-commentary'
-
-" May be need to install
-"Bundle 'chazy/cscope_maps'
-"Bundle 'taglist.vim'
-"Bundle 'mustache'
-"Bundle 'ack.vim'
-"Bundle 'vim-markdown'
-"let g:vim_markdown_folding_disabled=1
 
 call vundle#end()            " required
 filetype plugin indent on    " required
