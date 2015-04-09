@@ -60,6 +60,7 @@ Bundle 'vim-stylus'
 autocmd BufNewFile,BufRead *.styl set filetype=stylus
 
 
+" indent and syntax highlight
 Bundle "vim-javascript"
 let g:javascript_conceal = 1
 
@@ -72,28 +73,34 @@ let xml_use_html = 1
 Bundle 'matchtag'
 Bundle 'django.vim'
 
-Bundle 'supertab'
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabLongestHighlight = 1
+
+" Bundle 'supertab'
+" let g:SuperTabDefaultCompletionType = "context"
+" let g:SuperTabLongestHighlight = 1
 set completeopt=menuone,menu,longest
 " popup menu(used by SuperTab)
 highlight Pmenu ctermbg=239 gui=bold
 highlight PmenuSel ctermfg=239
-syntax enable
+" syntax enable
+"
+Bundle 'YouCompleteMe'
 
-Bundle 'jedi-vim'
-au FileType python set omnifunc=jedi#complete
-" Jedi automatically starts the completion, if you type a dot, e.g. str., if
-" you don't want this
-"let g:jedi#popup_on_dot = 0
-"If you are a person who likes to use VIM-buffers not tabs, you might want to
-"put that in your .vimrc
-let g:jedi#use_tabs_not_buffers = 0
-" work slow for me so i disable it
-let g:jedi#show_call_signatures = 0
-"There are also some VIM options (like completeopt) which are automatically
-"initialized, if you don't want that:
-let g:jedi#auto_vim_configuration = 0
+
+" this bundle included to YouCompleteMe
+" Bundle 'jedi-vim'
+" au FileType python set omnifunc=jedi#complete
+" " Jedi automatically starts the completion, if you type a dot, e.g. str., if
+" " you don't want this
+" "let g:jedi#popup_on_dot = 0
+" "If you are a person who likes to use VIM-buffers not tabs, you might want to
+" "put that in your .vimrc
+" let g:jedi#use_tabs_not_buffers = 0
+" " work slow for me so i disable it
+" let g:jedi#show_call_signatures = 0
+" "There are also some VIM options (like completeopt) which are automatically
+" "initialized, if you don't want that:
+" let g:jedi#auto_vim_configuration = 0
+
 
 Bundle 'ctrlp.vim'
 let g:ctrlp_show_hidden = 1
@@ -106,6 +113,8 @@ Bundle 'tagbar'
 nnoremap <silent> <F9> :TagbarToggle<CR>
 let g:tagbar_sort = 0
 
+
+" autocomplete for javascript
 Bundle 'tern_for_vim'
 
 Bundle 'vim-fugitive'
@@ -118,6 +127,24 @@ command -nargs=+ Gg execute ':silent! Ggrep' <q-args> | execute ':redraw!' | cw
 Bundle 'vim-init'
 
 Bundle 'vim-commentary'
+Bundle 'vim-coffee-script'
+autocmd BufNewFile,BufRead *.coffee set filetype=coffee
+
+
+
+
+" Track the engine.
+Bundle 'ultisnips'
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
