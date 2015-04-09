@@ -74,32 +74,15 @@ Bundle 'matchtag'
 Bundle 'django.vim'
 
 
-" Bundle 'supertab'
-" let g:SuperTabDefaultCompletionType = "context"
-" let g:SuperTabLongestHighlight = 1
+Bundle 'YouCompleteMe'
+" popup menu
 set completeopt=menuone,menu,longest
-" popup menu(used by SuperTab)
 highlight Pmenu ctermbg=239 gui=bold
 highlight PmenuSel ctermfg=239
-" syntax enable
-"
-Bundle 'YouCompleteMe'
 
-
-" this bundle included to YouCompleteMe
-" Bundle 'jedi-vim'
-" au FileType python set omnifunc=jedi#complete
-" " Jedi automatically starts the completion, if you type a dot, e.g. str., if
-" " you don't want this
-" "let g:jedi#popup_on_dot = 0
-" "If you are a person who likes to use VIM-buffers not tabs, you might want to
-" "put that in your .vimrc
-" let g:jedi#use_tabs_not_buffers = 0
-" " work slow for me so i disable it
-" let g:jedi#show_call_signatures = 0
-" "There are also some VIM options (like completeopt) which are automatically
-" "initialized, if you don't want that:
-" let g:jedi#auto_vim_configuration = 0
+" The next line maps Jedi's jump to definition/declaration feature to the
+" <leader>g shortcut
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
 Bundle 'ctrlp.vim'
