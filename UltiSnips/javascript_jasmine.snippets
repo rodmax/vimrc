@@ -54,6 +54,10 @@ snippet eb "expect to be (js)" b
 expect(${1:target}).toBe(${2:value});
 endsnippet
 
+snippet ebc "expect to be close to (js)" b
+expect(${1:target}).toBeCloseTo(${2:value}, ${3:precision});
+endsnippet
+
 snippet em "expect to match (js)" b
 expect(${1:target}).toMatch(${2:pattern});
 endsnippet
