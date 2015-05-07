@@ -132,6 +132,7 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
 " https://github.com/jiangmiao/auto-pairs
 Bundle 'auto-pairs'
+let g:AutoPairsShortcutFastWrap="<C-e>"
 
 
 call vundle#end()            " required
